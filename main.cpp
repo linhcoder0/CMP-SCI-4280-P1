@@ -7,7 +7,10 @@ void testScanner();
 
 int main(int argc, char* argv[]) {
         if(argc == 1) { //stdin
-
+            char a;
+            while(cin.get(a)){
+                cout << "You entered: " << a << endl;
+            }
         }
 
         else if (argc == 2) { // ./P1 (filename)
@@ -21,7 +24,7 @@ int main(int argc, char* argv[]) {
 
             char c;
             while(file.get(c)) {
-                cout << c; 
+                cout << "You entered: " << c << endl;
             }
 
             file.close();
