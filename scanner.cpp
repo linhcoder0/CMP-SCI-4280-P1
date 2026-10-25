@@ -14,9 +14,15 @@ void testScanner(istream& input) {
     while (input.get(a)) {
         if(a == '\n') {
             if(!number.empty()){
-                cout << "Number: " << number << endl;
+                    cout << "Line #" << lineNumber << ": Number: " << number << endl;
                 number.clear();
             }
+
+            if(!letter.empty()){
+                    cout << "Line #" << lineNumber << ": Letter: " << letter << endl;
+                letter.clear();
+            }
+
 
             lineNumber++;
             continue;
@@ -24,8 +30,13 @@ void testScanner(istream& input) {
 
         if(a == ' ') {
             if(!number.empty()){
-                cout << "Number: " << number << endl;
+                    cout << "Line #" << lineNumber << ": Number: " << number << endl;
                 number.clear();
+            }
+
+            if(!letter.empty()){
+                    cout << "Line #" << lineNumber << ": Letter: " << letter << endl;
+                letter.clear();
             }
             // cout << "Line #" << lineNumber << ": You entered: [SPACE]" << a << endl;
         }
@@ -34,30 +45,55 @@ void testScanner(istream& input) {
             number += a;
         } else { //123+/a/b/x/$/@
                 if(!number.empty()){
-                    cout << "Number: " << number << endl;
+                    cout << "Line #" << lineNumber << ": Number: " << number << endl;
                     number.clear();
-                }
-                if(a == '+') {
-                    cout << "Operator: +" << endl;
-                }
-                if(a == '-') {
-                    cout << "Operator: -" << endl;
-                }
-                if(a == '*') {
-                    cout << "Operator: *" << endl;
-                }
-                if(a == '/') {
-                    cout << "Operator: /" << endl;
                 }
         }
 
+        if(isalpha(a)){
+            letter += a;
+        } else { 
+                if(!letter.empty()){
+                    cout << "Line #" << lineNumber << ": Letter: " << letter << endl;
+                    letter.clear();
+                }
+                // if(a == '+') {
+                //     cout << "Operator: +" << endl;
+                // }
+                // if(a == '-') {
+                //     cout << "Operator: -" << endl;
+                // }
+                // if(a == '*') {
+                //     cout << "Operator: *" << endl;
+                // }
+                // if(a == '/') {
+                //     cout << "Operator: /" << endl;
+                // }
+        }
 
-        cout << "Line #" << lineNumber << ": You entered: " << a << endl;
+
+        // cout << "Line #" << lineNumber << ": You entered: " << a << endl;
+                if(a == '+') {
+                    cout << "Line #" << lineNumber << ": Operator: +" << endl;
+                }
+                if(a == '-') {
+                    cout << "Line #" << lineNumber << ": Operator: -" << endl;
+                }
+                if(a == '*') {
+                    cout << "Line #" << lineNumber << ": Operator: *" << endl;
+                }
+                if(a == '/') {
+                    cout << "Line #" << lineNumber << ": Operator: /" << endl;
+                }
     }    
 
         if(!number.empty()){
-            cout << "Number: " << number << endl;
+            cout << "Line #" << lineNumber << ": Number: " << number << endl;
             number.clear();
         } //prints remaining number when reaches EOF in case final line doesn't end with \n. 
 
+        if(!letter.empty()){
+            cout << "Line #" << lineNumber << ": Letter: " << letter << endl;
+            letter.clear();
+        }
 }
