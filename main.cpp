@@ -3,14 +3,11 @@
 #include <string>
 using namespace std;
 
-void testScanner();
+void testScanner(istream& input);
 
 int main(int argc, char* argv[]) {
         if(argc == 1) { //stdin
-            char a;
-            while(cin.get(a)){
-                cout << "You entered: " << a << endl;
-            }
+            testScanner(cin);
         }
 
         else if (argc == 2) { // ./P1 (filename)
@@ -21,11 +18,8 @@ int main(int argc, char* argv[]) {
                 cerr << "LEXICAL ERROR: File cannot be opened." << endl;
                 return 1;
             }
-
-            char c;
-            while(file.get(c)) {
-                cout << "You entered: " << c << endl;
-            }
+            
+            testScanner(file);
 
             file.close();
         }
