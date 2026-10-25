@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-void testScanner(istream& input);
+#include "scanner.h" // void testScanner(istream& input);
 
 int main(int argc, char* argv[]) {
         if(argc == 1) { //stdin
@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
                 cerr << "LEXICAL ERROR: File cannot be opened." << endl;
                 return 1;
             }
-            
+
             testScanner(file);
 
             file.close();
