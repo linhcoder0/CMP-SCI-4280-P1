@@ -2,8 +2,10 @@
 #define SCANNER_H
 
 #include <iostream>
+#include "token.h"
 using namespace std;
 
 void testScanner(istream& input);
-void scanner(istream& input);
+Token scanner(istream& input);
+
 #endif

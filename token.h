@@ -1,13 +1,21 @@
-// #ifndef SCANNER_H
-// #define SCANNER_H
+#ifndef TOKEN_H
+#define TOKEN_H
 
-// #include <iostream>
-// using namespace std;
+#include <string>
+using namespace std;
 
-// enum class TokenType {
-//     Identifier,
-//     Number,
+enum class TokenType {
+    IdentifierTk,
+    NumberTk,
+    OperatorTk,
+    KeywordTk,
+    EOFtk
+};
 
-// }
+struct Token {
+    TokenType type;
+    string instance;
+    int lineNumber;
+};
 
-// #endif
+#endif
